@@ -1,10 +1,13 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.payload.StationInfoPayload;
 import com.example.demo.model.payload.StationPayload;
 import com.example.demo.service.StationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class StationController {
@@ -30,5 +33,10 @@ public class StationController {
     public ResponseEntity deleteStation(@PathVariable String publicId) {
         stationService.deleteStation(publicId);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/station/info")
+    public List<StationInfoPayload> getAllStations() {
+        return stationService.getStations();
     }
 }
