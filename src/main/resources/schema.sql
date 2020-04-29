@@ -6,19 +6,22 @@ DROP TABLE IF EXISTS rent;
 CREATE TABLE station (
   id IDENTITY PRIMARY KEY AUTO_INCREMENT,
   publicId VARCHAR(36),
-  name VARCHAR(256)
+  name VARCHAR(256),
+  number VARCHAR(8)
 );
 
 CREATE TABLE bike (
   id IDENTITY PRIMARY KEY AUTO_INCREMENT,
   publicId VARCHAR(36),
-  station BIGINT
+  number VARCHAR(7),
+  stand BIGINT
 );
 
 CREATE TABLE stand (
   id IDENTITY PRIMARY KEY AUTO_INCREMENT,
   publicId VARCHAR(36),
   available BOOLEAN,
+  number VARCHAR(8),
   station BIGINT
 );
 
